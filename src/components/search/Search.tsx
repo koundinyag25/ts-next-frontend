@@ -1,7 +1,6 @@
 "use client";
 
 import { Button, Input } from "antd";
-import { useSearchParams } from "next/navigation";
 import { useState } from "react";
 
 const Search = ({
@@ -11,10 +10,7 @@ const Search = ({
   handleSearch: (searchText: string) => void;
   loading: boolean;
 }) => {
-  const searchParams = useSearchParams();
-  const [searchText, setSearchText] = useState<string>(
-    searchParams.get("search") || ""
-  );
+  const [searchText, setSearchText] = useState<string>("");
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter") {
